@@ -1,60 +1,349 @@
-# よくある質問
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>よくある質問</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f9f6;
+      --surface: #ffffff;
+      --ink: #1f2933;
+      --muted: #65727f;
+      --line: #dde5dc;
+      --green: #176b4d;
+      --green-dark: #0f5138;
+      --blue: #eaf3f8;
+      --gold: #b87928;
+      --shadow: 0 14px 34px rgba(20, 42, 30, 0.08);
+    }
 
-## 法要について
+    * {
+      box-sizing: border-box;
+    }
 
-### 法事を申し込みたい
-- 確認状態: 下書き
-- 最終更新: 2026/05/18
+    html {
+      scroll-behavior: smooth;
+    }
 
-#### 回答
-- LINEの「法要依頼」からお申込みいただけます。
-- お電話またはお寺に直接お越しいただいてお申込みいただけます。
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 17px;
+      line-height: 1.8;
+    }
 
-#### 事前に決めておくとよいこと
-- どなたの何回忌を執り行いたいのかお伝えください。
-- ご希望の日にちを2,3日候補をあげておくと調整しやすいです。
+    a {
+      color: inherit;
+    }
 
-#### 補足
-- 塔婆の申し込みと参加者の人数は1週間前までにお知らせください。
-- 当日の持ち物は、お位牌・お墓用のお花とお線香をご用意ください。
-- 本堂内のお供物やお花は寺で用意します。費用はお布施に含まれています。
+    .page {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 0 18px 40px;
+    }
 
-## 費用について
+    .top {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: #ffffff;
+      padding: 30px 0 26px;
+      border-bottom: 5px solid var(--gold);
+    }
 
-### お布施を知りたい
-- 確認状態: 下書き
-- 最終更新: 2026/05/18
+    .top-inner {
+      width: min(100%, 760px);
+      margin: 0 auto;
+      padding: 0 18px;
+    }
 
-#### 回答
-- お布施ですので決まりはございませんが、一法要5万円お納めいただく方が多いようです。
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: 0.86rem;
+      letter-spacing: 0;
+      opacity: 0.9;
+    }
 
-#### 注意
-- 金額は参考としていただいて、無理のないようにお願いします。
+    h1 {
+      margin: 0;
+      font-size: clamp(1.9rem, 9vw, 2.6rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
 
-## 持ち物について
+    .lead {
+      max-width: 34em;
+      margin: 14px 0 0;
+      font-size: 1.02rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
 
-### 法事の持ち物を知りたい
-- 確認状態: 下書き
-- 最終更新: 2026/05/18
+    .notice {
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 8px;
+      font-size: 0.96rem;
+    }
 
-#### 回答
-- 当日の持ち物は、お位牌・お墓用のお花とお線香をご用意ください。
-- 本堂内のお供物やお花は寺で用意します。費用はお布施に含まれています。
+    .category-nav {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 16px 0 10px;
+      margin: 0 -18px 10px;
+      padding-left: 18px;
+      padding-right: 18px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: rgba(247, 249, 246, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
 
-## その他
+    .category-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--green-dark);
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-### ペットの供養をしたい
-- 確認状態: 下書き
-- 最終更新: 2026/05/18
+    section {
+      scroll-margin-top: 86px;
+      margin-top: 26px;
+    }
 
-#### 回答
-- 合葬になります。
-- 埋葬後は返還できませんので、あらかじめご了承ください。
-- ご希望の日にちの候補を2,3日ご用意ください。
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.34rem;
+      line-height: 1.35;
+      letter-spacing: 0;
+      color: var(--green-dark);
+    }
 
-### 葬儀の相談をしたい
-- 確認状態: 下書き
-- 最終更新: 2026/05/18
+    .faq-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      padding: 20px 18px;
+      margin: 0 0 16px;
+    }
 
-#### 回答
-- 事前の相談も可能ですので、ご遠慮なくお問い合わせください。
+    .faq-card h3 {
+      margin: 0;
+      font-size: 1.16rem;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+
+    .updated {
+      margin: 4px 0 14px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .answer-block {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .answer-label {
+      display: inline-block;
+      margin-bottom: 6px;
+      color: var(--green-dark);
+      font-weight: 800;
+      font-size: 0.96rem;
+    }
+
+    ul {
+      margin: 6px 0 0;
+      padding-left: 1.2em;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    .soft-box {
+      margin-top: 14px;
+      padding: 14px 15px;
+      background: var(--blue);
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+    }
+
+    .soft-box p {
+      margin: 0;
+    }
+
+    .footer-note {
+      margin: 30px 0 0;
+      padding: 18px;
+      border-radius: 8px;
+      background: #fff7e8;
+      border: 1px solid #eed7b8;
+      color: #45321a;
+    }
+
+    .back-top {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      margin-top: 6px;
+      color: var(--green-dark);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (min-width: 640px) {
+      body {
+        font-size: 18px;
+      }
+
+      .top {
+        padding: 44px 0 34px;
+      }
+
+      .faq-card {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top" id="top">
+    <div class="top-inner">
+      <p class="eyebrow">公式LINE案内</p>
+      <h1>よくある質問</h1>
+      <p class="lead">法事や供養について、よく聞かれる内容をまとめました。分からないことは、LINEのトーク画面からそのまま文章でお送りください。</p>
+      <div class="notice">内容は変更になる場合があります。詳しくは、お電話またはLINEでご確認ください。</div>
+    </div>
+  </header>
+
+  <main class="page">
+    <nav class="category-nav" aria-label="質問カテゴリ">
+      <a href="#hoyo">法要</a>
+      <a href="#cost">費用</a>
+      <a href="#items">持ち物</a>
+      <a href="#other">その他</a>
+    </nav>
+
+    <section id="hoyo" aria-labelledby="hoyo-title">
+      <h2 id="hoyo-title">法要について</h2>
+      <article class="faq-card">
+        <h3>法事を申し込みたい</h3>
+        <p class="updated">最終更新: 2026年5月18日</p>
+
+        <div class="answer-block">
+          <span class="answer-label">申し込み方法</span>
+          <ul>
+            <li>LINEの「法要依頼」からお申し込みいただけます。</li>
+            <li>お電話、またはお寺に直接お越しいただいてお申し込みいただけます。</li>
+          </ul>
+        </div>
+
+        <div class="answer-block">
+          <span class="answer-label">事前に決めておくとよいこと</span>
+          <ul>
+            <li>どなたの何回忌を執り行いたいのかお伝えください。</li>
+            <li>ご希望の日にちを2〜3日ほど候補にしておくと、日程を調整しやすくなります。</li>
+          </ul>
+        </div>
+
+        <div class="soft-box">
+          <p>塔婆のお申し込みと参加人数は、1週間前までにお知らせください。</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="cost" aria-labelledby="cost-title">
+      <h2 id="cost-title">費用について</h2>
+      <article class="faq-card">
+        <h3>お布施を知りたい</h3>
+        <p class="updated">最終更新: 2026年5月18日</p>
+
+        <div class="answer-block">
+          <span class="answer-label">回答</span>
+          <ul>
+            <li>お布施ですので決まった金額はございませんが、一法要につき5万円をお納めいただく方が多いようです。</li>
+          </ul>
+        </div>
+
+        <div class="soft-box">
+          <p>金額は参考としていただき、無理のないようにお願いいたします。</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="items" aria-labelledby="items-title">
+      <h2 id="items-title">持ち物について</h2>
+      <article class="faq-card">
+        <h3>法事の持ち物を知りたい</h3>
+        <p class="updated">最終更新: 2026年5月18日</p>
+
+        <div class="answer-block">
+          <span class="answer-label">当日の持ち物</span>
+          <ul>
+            <li>お位牌</li>
+            <li>お墓用のお花</li>
+            <li>お線香</li>
+          </ul>
+        </div>
+
+        <div class="soft-box">
+          <p>本堂内のお供物やお花はお寺で用意します。費用はお布施に含まれています。</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="other" aria-labelledby="other-title">
+      <h2 id="other-title">その他</h2>
+      <article class="faq-card">
+        <h3>ペットの供養をしたい</h3>
+        <p class="updated">最終更新: 2026年5月18日</p>
+
+        <div class="answer-block">
+          <span class="answer-label">回答</span>
+          <ul>
+            <li>合葬になります。</li>
+            <li>埋葬後は返還できませんので、あらかじめご了承ください。</li>
+            <li>ご希望の日にちを2〜3日ほど候補にしておくと、日程を調整しやすくなります。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="faq-card">
+        <h3>葬儀の相談をしたい</h3>
+        <p class="updated">最終更新: 2026年5月18日</p>
+
+        <div class="answer-block">
+          <span class="answer-label">回答</span>
+          <ul>
+            <li>事前の相談も可能ですので、ご遠慮なくお問い合わせください。</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <div class="footer-note">
+      <p>お急ぎの場合や、内容を読んでも分からない場合は、LINEでそのままご相談内容をお送りください。</p>
+    </div>
+
+    <a class="back-top" href="#top">ページ上部へ戻る</a>
+  </main>
+</body>
+</html>
